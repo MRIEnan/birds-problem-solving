@@ -4,6 +4,7 @@ const birds = [1,1,2,2,4,4,4,4,5];
 
 const birdsDict = {};
 
+// updating birdsDict with key,value  from birds array
 for(const i of birds){
     if(!birdsDict[i]){
         birdsDict[i] = 1;
@@ -12,30 +13,21 @@ for(const i of birds){
         birdsDict[i]=birdsDict[i]+1
     }
 }
-// console.log(birdsDict)
 
+// initial value of maximumBird and minimumBird
 let maximumBird = parseInt(birds[0])
 let minimumBird = parseInt(birds[0])
 
-// console.log('initial',[maximumBird,minimumBird]);
-
+// evaluating the maximumBird and minimumBird
 for(const key in birdsDict){
-    // console.log('input key',key)
     if(birdsDict[key]<birdsDict[minimumBird] && birdsDict[key]!=birdsDict[minimumBird]){
-        // console.log('--------------in minimum---------------')
-        // console.log('min',`key-> ${key}`,`value->${birdsDict[key]}`,minimumBird)
         minimumBird=key
-        // console.log('running',[parseInt(maximumBird),parseInt(minimumBird)]);
         continue
     }
     else if(birdsDict[key]>birdsDict[maximumBird] && birdsDict[key]!=birdsDict[maximumBird]){
-        // console.log('--------------in maximum---------------')
-        // console.log('max',`key-> ${key}`,`value->${birdsDict[key]}`,maximumBird)
         maximumBird=key
-        // console.log('running',[parseInt(maximumBird),parseInt(minimumBird)]);
         continue
     }
 }
-
-// console.log('final',[parseInt(maximumBird),parseInt(minimumBird)]);
+// output/result of the input 
 console.log([parseInt(maximumBird),parseInt(minimumBird)]);
